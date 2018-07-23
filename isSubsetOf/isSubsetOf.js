@@ -17,25 +17,27 @@
  * subset.
 */
 
-
 /*
  * Extra credit: Make the method work for arrays that contain objects and/or arrays as elements.
 */
 
 Array.prototype.isSubsetOf = function (arr) {
-	var contextArray=this;
-  var inputObj={};
-  var result=true;
+  var contextArray = this
+  var inputObj = {}
+  var result = true
 
-    for (var i = 0; i < arr.length; i++) {
-      inputObj[arr[i]] = 1;
-  }
-
-
-for (var i = 0; i < contextArray.length; i++) {
-  if(!inputObj[contextArray[i]]){
+  if (contextArray.length === 0) {
     return false
   }
-}
-return result;
+
+  for (var i = 0; i < arr.length; i++) {
+    inputObj[arr[i]] = 1
+  }
+
+  for (var j = 0; j < contextArray.length; j++) {
+    if (!inputObj[contextArray[j]]) {
+      return false
+    }
+  }
+  return result
 }
