@@ -23,5 +23,19 @@
 */
 
 Array.prototype.isSubsetOf = function (arr) {
-	// your code here
+	var contextArray=this;
+  var inputObj={};
+  var result=true;
+
+    for (var i = 0; i < arr.length; i++) {
+      inputObj[arr[i]] = 1;
+  }
+
+
+for (var i = 0; i < contextArray.length; i++) {
+  if(!inputObj[contextArray[i]]){
+    return false
+  }
+}
+return result;
 }
