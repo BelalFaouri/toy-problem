@@ -12,5 +12,21 @@
 
 //Works for any number of input strings:
 var commonCharacters = function(string1, string2) {
-  
+  var commonObj={};
+  var resStr='';
+  for (var i = 0; i < string2.length; i++) {
+    if(!commonObj[string2[i]]){
+      commonObj[string2[i]] = 1
+    }else{
+      commonObj[string2[i]]++
+    }
+  }
+
+  for (var j = 0; j < string1.length; j++) {
+    if(commonObj[string1[j]] && string1[j] !== ' '){
+      resStr+=string1[j]
+      delete commonObj[string1[j]]
+    }
+  }
+  return resStr
 };
