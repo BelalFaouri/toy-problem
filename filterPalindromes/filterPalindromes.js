@@ -5,11 +5,21 @@
 
 
 
-
+function reverseWord(word){
+  return word.toLowerCase().split('').reverse().join('')
+}
 
 
 
 function filterPalindromes (words) {
-  // Write your code here, and
-  // return your final answer.
+  var newArr=[];
+
+  for (var i = 0; i < words.length; i++) {
+    var word = words[i]
+
+    if(word.toLowerCase().replace(/\s/g, '') === reverseWord(word).replace(/\s/g, '')){
+      newArr.push(word)
+    }
+  }
+  return newArr
 }
