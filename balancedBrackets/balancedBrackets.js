@@ -13,55 +13,24 @@
 //output:false
 
 function isBalanced (str) {
-  var stack=[];
-  var isBalanced=true;
-  var match={
-  ')':'(',
-  ']':'[',
-  '}':'{'
-  }
+  var stack=[],
+   openingBrackets=['[', '{', '('],
+   closingBrackets=[']','}',')'],
+   matchingBracket
 
-  for (var i = 0; i < str.length; i++) {
-     if (str[i] === ')') {
-      if(match[str[i]] === stack.pop()){
-        stack.pop()
-      }else{
-        return false
-      }
-    }else if (str[i] === ']') {
-      if(match[str[i]] === stack.pop()){
-        stack.pop()
-      }else{
-        return false
-      }
-    }else if (str[i] === '}') {
-      if(match[str[i]] === stack.pop()){
-        stack.pop()
-      }else{
-        return false
-      }
-    }else{
+   for (var i = 0; i < str.length; i++) {
+     var char=str[i];
 
-        stack.push(str[i]);
+     if(closingBrackets.indexOf(char) > -1){
+       matchingBracket = openingBrackets[closingBrackets.indexOf(char)]
 
-    }
-  }
-
+       if(stack.length ===0 || stack.pop() !== matchingBracket){
+         return false
+       }
+     }else if (openingBrackets.indexOf(char) > -1){
+       stack.push(char)
+     }
+   }
   return stack.length === 0
 
-
 }
-// for (var i = 0; i < str.length; i++) {
-//   var char=str[i]
-//
-//   if(char === '(' || char === '[' || char === '{'){
-//     stack.push(char);
-//   }else if (char === ')' || char === ']' || char === '}') {
-//     if(stack.pop() === match[char]){
-//       stack.pop()
-//     }else if (match[char] !== stack.pop()) {
-//       isBalanced=false;
-//     }
-//   }
-// }
-// return  isBalanced && (stack.length === 0);
