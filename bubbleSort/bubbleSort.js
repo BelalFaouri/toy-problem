@@ -7,10 +7,6 @@
 //Implement a function that takes an array and sorts it using this technique.
 //NOTE: DO NOT use JavaScript’s built-in sorting function (Array.prototype.sort).
 var bubbleSort = function(array) {
-<<<<<<< HEAD
-	
-};
-=======
 	var newArr=[];
 	var max=0
 
@@ -25,8 +21,7 @@ var bubbleSort = function(array) {
 			}
 
 		}
-		
+
 	}
 	return array;
 };
->>>>>>> solved
